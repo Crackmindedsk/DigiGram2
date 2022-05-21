@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DigiGram</string>
+    <string-array name="water_category">
+        <item>Select category</item>
+        <item>New Connection</item>
+        <item>Maintenance</item>
+        <item>Other</item>
+    </string-array>
 </resources>
