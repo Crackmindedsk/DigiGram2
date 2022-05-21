@@ -9,13 +9,15 @@
     tools:context=".RegisterNewComplaint">
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner2"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="30dp"
         android:paddingStart="20dp"></Spinner>
+
+
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinner"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="30dp"

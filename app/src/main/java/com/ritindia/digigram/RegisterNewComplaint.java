@@ -43,7 +43,7 @@ public class RegisterNewComplaint extends AppCompatActivity {
 
         spinner2= (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.Derpartments, android.R.layout.simple_spinner_item);
+                R.array.Departments, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
@@ -51,7 +51,6 @@ public class RegisterNewComplaint extends AppCompatActivity {
         etcomplaintdes=findViewById(R.id.etcomplaintdes);
         etdate=findViewById(R.id.etdate);
         db=FirebaseFirestore.getInstance();
-
 
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 

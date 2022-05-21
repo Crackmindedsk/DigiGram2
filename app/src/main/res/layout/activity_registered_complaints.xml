@@ -190,7 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="1dp"
-                android:text="Ward no."
+                android:text=""
                 android:typeface="monospace" />
 
 

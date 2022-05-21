@@ -7,7 +7,8 @@
         <item>Maintenance</item>
         <item>Other</item>
     </string-array>
-    <string-array name="Derpartments">
+    <string-array name="Departments">
+        <item>Select Department</item>
         <item>Water</item>
         <item>Electricity</item>
         <item>Sanitation</item>
