@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.ritindia.digigram.R;
+import com.ritindia.digigram.RegisterNewComplaint;
+
 public class HomeFragment extends Fragment {
     @Nullable
     @Override

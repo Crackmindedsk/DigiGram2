@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ritindia.digigram.R;
+
+
 public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAdapter.AdminComplaintViewHolder>{
     private String[] data;
     public AdminComplaintAdapter(String[] data){
@@ -45,4 +48,3 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
         }
     }
 }
-
