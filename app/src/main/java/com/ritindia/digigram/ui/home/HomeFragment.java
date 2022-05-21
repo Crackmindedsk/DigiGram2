@@ -12,6 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ritindia.digigram.R;
+<<<<<<< HEAD
+=======
+import com.ritindia.digigram.RegisterNewComplaint;
+>>>>>>> 3ec5a0efcf7846004f097961e015a4d4c9064c7e
 
 public class HomeFragment extends Fragment {
     @Nullable

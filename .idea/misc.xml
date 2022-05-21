@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_admin_complaint.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_department.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_status.xml" value="0.1" />
@@ -15,10 +16,22 @@
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/app_bar_home_page.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/content_home_page.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+=======
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/drawable/background_color.xml" value="0.138" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/drawable/ic_baseline_language_24.xml" value="0.138" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/activity_complaint_department_actiivty.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/activity_registered_complaints.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/activity_view_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/admin_complaint_card.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/content_home_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/nav_header_home_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
+>>>>>>> 3ec5a0efcf7846004f097961e015a4d4c9064c7e
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
