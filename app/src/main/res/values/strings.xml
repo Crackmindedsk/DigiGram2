@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">DigiGram</string>
+    <string name="colon">:</string>
     <string-array name="water_category">
         <item>Select category</item>
         <item>New Connection</item>

@@ -18,22 +18,14 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.ritindia.digigram.databinding.ActivityHomePageBinding;
 
 public class HomePage extends AppCompatActivity {
-
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomePageBinding binding;
     Button openComplaint,complaintStatusButton, workProgress, closecomplaints, newcomplaint;
     TextView logoutButton;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        binding = ActivityHomePageBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,21 +63,21 @@ public class HomePage extends AppCompatActivity {
         openComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),RegisteredComplaintActivity.class);
+                Intent intent=new Intent(getApplicationContext(),RegisterComplaintActivity.class);
                 startActivity(intent);
             }
         });
         workProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),RegisteredComplaintActivity.class);
+                Intent intent=new Intent(getApplicationContext(),RegisterComplaintActivity.class);
                 startActivity(intent);
             }
         });
         closecomplaints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),RegisteredComplaintActivity.class);
+                Intent intent=new Intent(getApplicationContext(),RegisterComplaintActivity.class);
                 startActivity(intent);
             }
         });
@@ -124,8 +116,5 @@ public class HomePage extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_page);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    private static class ActivityHomePageBinding {
     }
 }
