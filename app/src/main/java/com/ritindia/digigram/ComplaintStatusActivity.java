@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.ritindia.digigram.databinding.ActivityComplaintStatusBinding;
+
 public class ComplaintStatusActivity extends AppCompatActivity {
     ActivityComplaintStatusBinding binding;
     String[] description = {"Registered", "Received", "Ongoing", "Complete"};

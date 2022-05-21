@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.ritindia.digigram.adapter.ComplaintAdapter;
+
 public class RegisterComplaintActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     RecyclerView recyclerView;

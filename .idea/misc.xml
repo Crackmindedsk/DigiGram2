@@ -5,13 +5,24 @@
       <map>
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_admin_complaint.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_department.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_department_actiivty.xml" value="0.184375" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_status.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_home_page.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_register_complaint.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_register_new_complaint.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_register_user.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_registered_complaints.xml" value="0.184375" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_verification.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_view_list.xml" value="0.184375" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/admin_complaint_card.xml" value="0.184375" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/app_bar_home_page.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/content_home_page.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/fragment_profile.xml" value="0.184375" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/nav_header_home_page.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/menu/home_page.xml" value="0.1" />
       </map>
     </option>
   </component>
