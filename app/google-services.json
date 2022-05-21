@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193166009322",
+    "project_id": "dgdatabase-cf840",
+    "storage_bucket": "dgdatabase-cf840.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193166009322:android:3a9552490351f02d608893",
+        "android_client_info": {
+          "package_name": "com.ritindia.digigram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193166009322-u5fvrvc4ef4t7p0r6h2npq5e7ntstpj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3OTLY5mho3LOCj43_wYiVXxzJ-z48ZE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193166009322-u5fvrvc4ef4t7p0r6h2npq5e7ntstpj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
