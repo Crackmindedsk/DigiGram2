@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     String username="";
     String password="";
     FirebaseFirestore db;
+    Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 username="+91"+etusername.getText().toString();
+                LocalVariables l=new LocalVariables();
+                l.user_id=username;
                 password=etpassword.getText().toString();
                 db.collection("User")
                         .get()
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     for(QueryDocumentSnapshot snapshot:task.getResult()){
                                         if(username.equalsIgnoreCase(snapshot.getString("Phonenumber"))&&password.equalsIgnoreCase(snapshot.getString("Password"))){
+                                            startActivity(new Intent(MainActivity.this,HomePage.class));
                                             Toast.makeText(MainActivity.this, "Successfully logged in..", Toast.LENGTH_SHORT).show();
                                             break;
                                         }else{
