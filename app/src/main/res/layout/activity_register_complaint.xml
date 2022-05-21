@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cardColor">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="10dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/white"
+        android:outlineSpotShadowColor="@color/black">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="3"
+            android:outlineAmbientShadowColor="@color/black"
+            android:padding="10dp"
+            android:rowCount="6"
+            android:layout_gravity="fill">
+
+            <TextView
+                android:id="@+id/complaint_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="1dp"
+                android:text="Complaint ID"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                />
+            <TextView
+                android:id="@+id/colon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text=":"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:id="@+id/complaint_id_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Id"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:id="@+id/complaint_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="1dp"
+                android:text="Complaint Category"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                />
+            <TextView
+                android:id="@+id/colon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text=":"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                />
+
+            <TextView
+                android:id="@+id/complaint_category_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Category"
+                android:layout_gravity="fill"/>
+
+
+            <TextView
+                android:id="@+id/complaint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Complaint       "
+                android:textStyle="bold"
+                android:typeface="monospace" />
+            <TextView
+                android:id="@+id/colon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="1dp"
+                android:text=":"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/complaint_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Complaint"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/Complaint_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Complaint Date"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+            <TextView
+                android:id="@+id/colon4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="1dp"
+                android:text=":"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/Complaint_date_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:inputType="number"
+                android:padding="1dp"
+                android:text="Date" />
+
+            <TextView
+                android:id="@+id/Complaint_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Complaint Status"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+            <TextView
+                android:id="@+id/colon5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="1dp"
+                android:text=":"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/transfer_text_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:inputType="number"
+                android:padding="1dp"
+                android:text="Complaint Status " />
+
+            <TextView
+                android:id="@+id/ward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Ward No."
+                android:textStyle="bold"
+                android:typeface="monospace" />
+            <TextView
+                android:id="@+id/colon6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="1dp"
+                android:text=":"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/status_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="Ward no."
+                android:typeface="monospace" />
+
+
+        </GridLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

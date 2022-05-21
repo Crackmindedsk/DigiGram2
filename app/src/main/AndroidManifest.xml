@@ -10,6 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DigiGram">
         <activity
+            android:name=".Verification"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterUser"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterNewComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintStatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintDepartmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
