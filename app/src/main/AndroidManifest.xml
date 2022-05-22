@@ -44,7 +44,12 @@
             android:exported="false" />
         <activity
             android:name=".HomePage"
+<<<<<<< HEAD
             android:exported="true"></activity>
+=======
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="false" />
+>>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
         <activity
             android:name=".MainActivity"
             android:exported="true"></activity>

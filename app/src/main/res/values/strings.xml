@@ -7,4 +7,13 @@
         <item>Maintenance</item>
         <item>Other</item>
     </string-array>
+    <string-array name="Departments">
+        <item>Select Department</item>
+        <item>Water</item>
+        <item>Electricity</item>
+        <item>Sanitation</item>
+        <item>Medical</item>
+        <item>Education</item>
+        <item>Transportation</item>
+    </string-array>
 </resources>
