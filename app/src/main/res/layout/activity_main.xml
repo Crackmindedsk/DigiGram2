@@ -26,7 +26,6 @@
             android:textColor="@color/black"
             android:textStyle="bold|italic"
             android:paddingTop="50dp"
-
             android:layout_marginTop="20dp"
             android:layout_gravity="center">
         </TextView>

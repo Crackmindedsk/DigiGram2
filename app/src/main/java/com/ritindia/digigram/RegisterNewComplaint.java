@@ -41,6 +41,8 @@ public class RegisterNewComplaint extends AppCompatActivity {
         db=FirebaseFirestore.getInstance();
 
 
+
+
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {
