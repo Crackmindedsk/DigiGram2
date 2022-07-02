@@ -52,6 +52,12 @@ public class RegisterNewComplaint extends AppCompatActivity {
         etdate=findViewById(R.id.etdate);
         db=FirebaseFirestore.getInstance();
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {
