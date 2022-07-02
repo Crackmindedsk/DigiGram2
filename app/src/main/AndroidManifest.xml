@@ -30,11 +30,7 @@
         <activity
             android:name=".ComplaintStatusActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ComplaintDepartmentActivity"
@@ -44,15 +40,20 @@
             android:exported="false" />
         <activity
             android:name=".HomePage"
-<<<<<<< HEAD
-            android:exported="true"></activity>
-=======
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:exported="false" />
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

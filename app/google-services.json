@@ -1,31 +1,24 @@
 {
   "project_info": {
-<<<<<<< HEAD
     "project_number": "344975484678",
     "project_id": "digigram-64394",
     "storage_bucket": "digigram-64394.appspot.com"
-=======
-    "project_number": "193166009322",
-    "project_id": "dgdatabase-cf840",
-    "storage_bucket": "dgdatabase-cf840.appspot.com"
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
-        "mobilesdk_app_id": "1:344975484678:android:da0a6146004ce698106087",
+        "mobilesdk_app_id": "1:344975484678:android:9635e2be7194f5b5106087",
         "android_client_info": {
-          "package_name": "com.example.digiGram1"
+          "package_name": "com.ritindia.digigram"
         }
       },
       "oauth_client": [
         {
-          "client_id": "344975484678-eae4bg1ikqdaenvfpka3gnich0qgd42d.apps.googleusercontent.com",
+          "client_id": "344975484678-3qo2o7pgu8jjbkd76t5vgcrup7h1druh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.digiGram1",
-            "certificate_hash": "ae4667c0b00720bebbe5a8e6e9335f8d2114e8a1"
+            "package_name": "com.ritindia.digigram",
+            "certificate_hash": "689db72728603c988dfd3de31375eb22f654c4f1"
           }
         },
         {
@@ -43,50 +36,6 @@
           "other_platform_oauth_client": [
             {
               "client_id": "344975484678-6o79l6veqhl3pt258gpfb1fat5439342.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:344975484678:android:9635e2be7194f5b5106087",
-=======
-        "mobilesdk_app_id": "1:193166009322:android:25a979be0349d5a1608893",
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
-        "android_client_info": {
-          "package_name": "com.ritindia.digigram"
-        }
-      },
-      "oauth_client": [
-        {
-<<<<<<< HEAD
-          "client_id": "344975484678-6o79l6veqhl3pt258gpfb1fat5439342.apps.googleusercontent.com",
-=======
-          "client_id": "193166009322-u5fvrvc4ef4t7p0r6h2npq5e7ntstpj0.apps.googleusercontent.com",
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-<<<<<<< HEAD
-          "current_key": "AIzaSyAAgCaldKF--uUsbzlzz8RYWO-CJ5wK08o"
-=======
-          "current_key": "AIzaSyC3OTLY5mho3LOCj43_wYiVXxzJ-z48ZE0"
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-<<<<<<< HEAD
-              "client_id": "344975484678-6o79l6veqhl3pt258gpfb1fat5439342.apps.googleusercontent.com",
-=======
-              "client_id": "193166009322-u5fvrvc4ef4t7p0r6h2npq5e7ntstpj0.apps.googleusercontent.com",
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
               "client_type": 3
             }
           ]

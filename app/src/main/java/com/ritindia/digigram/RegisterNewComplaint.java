@@ -15,8 +15,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -26,7 +29,7 @@ import java.util.Map;
 public class RegisterNewComplaint extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
     Button btnrnewcomplaint;
-    String complaintadd,complaintdes,date;
+    String complaintadd,complaintdes,date, department, category;
     EditText etcomplaintadd,etcomplaintdes,etdate;
     FirebaseFirestore db;
     Spinner spinner,spinner2;
@@ -52,12 +55,7 @@ public class RegisterNewComplaint extends AppCompatActivity {
         etdate=findViewById(R.id.etdate);
         db=FirebaseFirestore.getInstance();
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {
@@ -67,32 +65,28 @@ public class RegisterNewComplaint extends AppCompatActivity {
                 complaintdes=etcomplaintdes.getText().toString();
                 complaintadd=etcomplaintadd.getText().toString();
                 date=etdate.getText().toString();
+                department=spinner2.getSelectedItem().toString();
+                category= spinner.getSelectedItem().toString();
+
 
                 Map<String,Object> complaint=new HashMap<>();
-                LocalVariables localVariables=new LocalVariables();
-                complaint.put("Username",localVariables.user_id);
-                //complaint.put("ComplaintID","1");
-                complaint.put("Complaint_Description",complaintdes);
-                complaint.put("Complaint_Address",complaintadd);
+                complaint.put("Description",complaintdes);
+                complaint.put("Address",complaintadd);
                 complaint.put("Date",date);
-                complaint.put("Department",spinner2.getSelectedItem().toString());
+                complaint.put("Department",department);
                 complaint.put("Status","Ongoing");
-                complaint.put("Complaint_Category",spinner.getSelectedItem().toString());
+                complaint.put("Category",category);
 
-                db.collection("Complaints")
-                        .add(complaint)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(RegisterNewComplaint.this, "Complaint added...", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RegisterNewComplaint.this, "Failed to add complaint...", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                db.collection("Complaint").document().set(complaint).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"Complaint posted",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Complaint registration failure",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
                 AlertDialog.Builder notify=new AlertDialog.Builder(RegisterNewComplaint.this);
                 notify.setMessage("Complaint registerd successfully..");
