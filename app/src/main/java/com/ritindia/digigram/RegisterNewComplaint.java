@@ -1,12 +1,7 @@
 package com.ritindia.digigram;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,12 +51,6 @@ public class RegisterNewComplaint extends AppCompatActivity {
         etdate=findViewById(R.id.etdate);
         db=FirebaseFirestore.getInstance();
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 4d82e462bfd94fcf694c9775026d4a13000bed00
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {
