@@ -102,8 +102,4 @@
             android:elevation="10dp"/>
     </androidx.cardview.widget.CardView>
 
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
