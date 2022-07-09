@@ -1,40 +1,43 @@
 package com.ritindia.digigram;
 
-import android.annotation.SuppressLint;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-<<<<<<< HEAD
-import com.google.android.gms.tasks.OnCompleteListener;
-=======
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
->>>>>>> 2be4126135d4d8f2ef55ee4ab114ed48497d80ae
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class RegisterNewComplaint extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
     Button btnrnewcomplaint;
-    String complaintadd,complaintdes,date, department, category;
+    String complaintadd,complaintdes,pickdate;
     EditText etcomplaintadd,etcomplaintdes,etdate;
     FirebaseFirestore db;
     Spinner spinner,spinner2;
+    final Calendar myCalendar= Calendar.getInstance();
+
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +60,23 @@ public class RegisterNewComplaint extends AppCompatActivity {
         etdate=findViewById(R.id.etdate);
         db=FirebaseFirestore.getInstance();
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 2be4126135d4d8f2ef55ee4ab114ed48497d80ae
+        DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH,month);
+                myCalendar.set(Calendar.DAY_OF_MONTH,day);
+                updateLabel();
+            }
+        };
+        etdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(RegisterNewComplaint.this , date , myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {
@@ -69,34 +85,39 @@ public class RegisterNewComplaint extends AppCompatActivity {
 
                 complaintdes=etcomplaintdes.getText().toString();
                 complaintadd=etcomplaintadd.getText().toString();
-                date=etdate.getText().toString();
-                department=spinner2.getSelectedItem().toString();
-                category= spinner.getSelectedItem().toString();
-
+                pickdate=etdate.getText().toString();
 
                 Map<String,Object> complaint=new HashMap<>();
+                LocalVariables localVariables=new LocalVariables();
+                complaint.put("Username",localVariables.user_id);
+                //complaint.put("ComplaintID","1");
                 complaint.put("Description",complaintdes);
                 complaint.put("Address",complaintadd);
-                complaint.put("Date",date);
-                complaint.put("Department",department);
+                complaint.put("Date",pickdate);
+                complaint.put("Department",spinner2.getSelectedItem().toString());
                 complaint.put("Status","Ongoing");
-                complaint.put("Category",category);
+                complaint.put("Category",spinner.getSelectedItem().toString());
 
-                db.collection("Complaint").document().set(complaint).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Complaint posted",Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getApplicationContext(),"Complaint registration failure",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                db.collection("Complaints")
+                        .add(complaint)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(RegisterNewComplaint.this, "Complaint added...", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RegisterNewComplaint.this, "Failed to add complaint...", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                 AlertDialog.Builder notify=new AlertDialog.Builder(RegisterNewComplaint.this);
                 notify.setMessage("Complaint registerd successfully..");
                 notify.setIcon(R.drawable.ic_launcher_background);
                 notify.setCancelable(false);
+
                 notify.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -107,5 +128,11 @@ public class RegisterNewComplaint extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void updateLabel(){
+        String myFormat="dd/MM/yyyy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+        etdate.setText(dateFormat.format(myCalendar.getTime()));
     }
 }

@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ritindia.digigram.ComplaintData;
 import com.ritindia.digigram.R;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FecthDetailsAdapter extends RecyclerView.Adapter<FecthDetailsAdapter.ViewHolder> {
@@ -58,7 +56,7 @@ public class FecthDetailsAdapter extends RecyclerView.Adapter<FecthDetailsAdapte
                     itemView.findViewById(R.id.complaint_edit),
                     itemView.findViewById(R.id.Complaint_date_edit),
                     itemView.findViewById(R.id.transfer_text_edit),
-                    itemView.findViewById(R.id.status_edit),
+                    itemView.findViewById(R.id.ward_edit),
             };
         }
     }

@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ritindia.digigram.ComplaintData;
 import com.ritindia.digigram.R;
-import com.ritindia.digigram.RegisterComplaintActivity;
 
 import java.util.ArrayList;
 
@@ -69,7 +68,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             complaint = itemView.findViewById(R.id.complaint_edit);
             date=itemView.findViewById(R.id.Complaint_date_edit);
             status = itemView.findViewById(R.id.transfer_text_edit);
-            ward=itemView.findViewById(R.id.status_edit);
+            ward=itemView.findViewById(R.id.ward_edit);
         }
     }
 }

@@ -11,7 +11,9 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
         android:layout_height="55dp"
         android:layout_marginBottom="30dp"
         android:paddingStart="20dp"></Spinner>
@@ -19,14 +21,18 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
         android:layout_height="55dp"
         android:layout_marginBottom="30dp"
         android:paddingStart="20dp"></Spinner>
 
     <EditText
         android:id="@+id/etcomplaintdes"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
         android:hint="Complaint Description"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
@@ -36,7 +42,9 @@
 
     <EditText
         android:id="@+id/etcomplaintadd"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
         android:layout_height="wrap_content"
         android:hint="Ward Number"
         android:inputType="text"
@@ -45,17 +53,24 @@
     </EditText>
     <EditText
         android:id="@+id/etdate"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
         android:layout_height="wrap_content"
         android:hint="Complaint Date"
-        android:inputType="date"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_marginBottom="30dp"
         android:paddingStart="20dp">
     </EditText>
 
     <Button
         android:id="@+id/btnnewcomplaint"
-        android:layout_width="210dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
         android:layout_height="55dp"
         android:text="Register complaint"
         android:textAllCaps="false" />

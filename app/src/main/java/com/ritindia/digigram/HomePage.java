@@ -23,7 +23,7 @@ public class HomePage extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomePageBinding binding;
     Button openComplaint,complaintStatusButton, workProgress, closecomplaints, newcomplaint;
-    TextView logoutButton;
+    TextView logoutButton , exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class HomePage extends AppCompatActivity {
         complaintStatusButton=findViewById(R.id.track_status);
         newcomplaint =findViewById(R.id.btncomplaint);
         logoutButton = findViewById(R.id.logout);
+        exit = findViewById(R.id.exit_app);
         openComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +92,8 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+
+                System.exit(0);
             }
         });
         newcomplaint.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +101,13 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),RegisterNewComplaint.class);
                 startActivity(intent);
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
             }
         });
     }
