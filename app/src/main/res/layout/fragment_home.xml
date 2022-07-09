@@ -36,7 +36,9 @@
 
         <Button
             android:id="@+id/total_complaints"
-            android:layout_width="333dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="07dp"
+            android:layout_marginEnd="09dp"
             android:layout_height="60dp"
             android:background="@drawable/border"
             android:text="Total Complaints"
@@ -48,7 +50,9 @@
 
         <Button
             android:id="@+id/open_complaint"
-            android:layout_width="331dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="07dp"
+            android:layout_marginEnd="09dp"
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/border"
@@ -60,7 +64,9 @@
 
         <Button
             android:id="@+id/work_in_progress"
-            android:layout_width="331dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="07dp"
+            android:layout_marginEnd="09dp"
             android:layout_height="60dp"
             android:background="@drawable/border"
             android:text="Work in Progress"
@@ -72,7 +78,9 @@
 
         <Button
             android:id="@+id/close_complaint"
-            android:layout_width="333dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="07dp"
+            android:layout_marginEnd="09dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/border"

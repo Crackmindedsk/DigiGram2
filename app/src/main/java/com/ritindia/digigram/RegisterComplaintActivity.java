@@ -38,6 +38,8 @@ public class RegisterComplaintActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_list);
+//        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+//        Log.d("Hello", "Rgister Activity ");
 
 //        ComplaintData[] data = new ComplaintData[]{
 //                new ComplaintData("1", "New Connection", "12/01/2022", "New Water Connection", "ONGOING", "1"),
@@ -67,6 +69,7 @@ public class RegisterComplaintActivity extends AppCompatActivity {
                             // hiding our progress bar and adding
                             // our data in a list.
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            Log.d("tag", String.valueOf(list));
                             for (DocumentSnapshot d : list) {
                                 // after getting this list we are passing
                                 // that list to our object class.
