@@ -14,7 +14,14 @@
         android:theme="@style/Theme.DigiGram">
         <activity
             android:name=".StartActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".Verification"
             android:exported="false" />
@@ -44,11 +51,7 @@
             android:name=".HomePage"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity

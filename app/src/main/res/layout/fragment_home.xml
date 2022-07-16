@@ -42,9 +42,10 @@
             android:layout_height="60dp"
             android:background="@drawable/border"
             android:text="Total Complaints"
+            android:textColor="@color/black"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
-            android:textAllCaps="false"
+            android:textAllCaps="true"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -52,13 +53,14 @@
             android:id="@+id/open_complaint"
             android:layout_width="match_parent"
             android:layout_marginStart="07dp"
+            android:textColor="@color/black"
             android:layout_marginEnd="09dp"
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/border"
             android:text="Open Complaints"
             android:layout_gravity="center_horizontal"
-            android:textAllCaps="false"
+            android:textAllCaps="true"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -68,11 +70,12 @@
             android:layout_marginStart="07dp"
             android:layout_marginEnd="09dp"
             android:layout_height="60dp"
+            android:textColor="@color/black"
             android:background="@drawable/border"
             android:text="Work in Progress"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
-            android:textAllCaps="false"
+            android:textAllCaps="true"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -80,12 +83,13 @@
             android:id="@+id/close_complaint"
             android:layout_width="match_parent"
             android:layout_marginStart="07dp"
+            android:textColor="@color/black"
             android:layout_marginEnd="09dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/border"
             android:text="Close Complaints"
-            android:textAllCaps="false"
+            android:textAllCaps="true"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -106,6 +110,7 @@
             android:id="@+id/btncomplaint"
             android:background="@drawable/border"
             android:textAllCaps="true"
+            android:textColor="@color/black"
             android:text="New Complaint"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -116,6 +121,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/border"
             android:textAllCaps="true"
+            android:textColor="@color/black"
             android:id="@+id/track_status"
             android:text="Track Complaint Status"
             android:textSize="14sp"
