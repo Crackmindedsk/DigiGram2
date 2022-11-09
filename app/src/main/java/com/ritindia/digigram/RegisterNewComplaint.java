@@ -10,14 +10,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-<<<<<<< HEAD
+
 import com.google.android.gms.tasks.OnCompleteListener;
-=======
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
->>>>>>> 2be4126135d4d8f2ef55ee4ab114ed48497d80ae
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -56,11 +53,6 @@ public class RegisterNewComplaint extends AppCompatActivity {
         etcomplaintdes=findViewById(R.id.etcomplaintdes);
         etdate=findViewById(R.id.etdate);
         db=FirebaseFirestore.getInstance();
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2be4126135d4d8f2ef55ee4ab114ed48497d80ae
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
 
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {

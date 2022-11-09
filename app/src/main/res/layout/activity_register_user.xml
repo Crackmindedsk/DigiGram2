@@ -64,6 +64,18 @@
             android:textColorHint="@color/black">
         </EditText>
         <EditText
+            android:id="@+id/etenteraadhaar"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:hint="Aadhaar number"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="15dp"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black">
+        </EditText>
+        <EditText
             android:id="@+id/etwardno"
             android:layout_width="300dp"
             android:layout_height="60dp"

@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="30dp"
-        android:paddingStart="20dp"></Spinner>
+        android:paddingStart="20dp" />
 
 
     <Spinner
@@ -22,7 +22,7 @@
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="30dp"
-        android:paddingStart="20dp"></Spinner>
+        android:paddingStart="20dp" />
 
     <EditText
         android:id="@+id/etcomplaintdes"

@@ -3,6 +3,7 @@ package com.ritindia.digigram;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,25 +12,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterUser extends AppCompatActivity {
     Button btnregister;
-    EditText etphoneno,etname,etwardno,etlocation,etenterpassword;
+    EditText etphoneno,etname,etwardno,etlocation,etenterpassword,etenteraadhaaar;
     TextView tvwarning;
     String phoneno;
     String name;
     String wardno;
     String location;
     String password;
+    String aadhaarno;
+    Integer id=1;
+    private ProgressDialog progressDialog;
 
-    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +56,9 @@ public class RegisterUser extends AppCompatActivity {
         etlocation=findViewById(R.id.etlocation);
         etenterpassword=findViewById(R.id.etenterpassword);
         tvwarning=findViewById(R.id.tvwaring);
+        etenteraadhaaar= findViewById(R.id.etenteraadhaar);
+        progressDialog = new ProgressDialog(this);
 
-        db=FirebaseFirestore.getInstance();
 
         Intent intent=getIntent();
         phoneno=intent.getStringExtra("phonenumber");
@@ -54,39 +68,59 @@ public class RegisterUser extends AppCompatActivity {
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name=etname.getText().toString().trim();
-                wardno=etwardno.getText().toString().trim();
-                location=etlocation.getText().toString().trim();
-                password=etenterpassword.getText().toString().trim();
-
-                if(name.isEmpty()||wardno.isEmpty()||location.isEmpty()||password.isEmpty()){
-                    tvwarning.setText("All fields are required..");
-                }else{
-                    Map<String,Object> user=new HashMap<>();
-                    user.put("Name",name);
-                    user.put("Phonenumber",phoneno);
-                    user.put("Ward",wardno);
-                    user.put("Location",location);
-                    user.put("Password",password);
-
-                    db.collection("User")
-                            .add(user)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Toast.makeText(RegisterUser.this, "User added successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent1=new Intent(getApplicationContext(),MainActivity.class);
-                                    startActivity(intent1);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(RegisterUser.this, "Failed to add user", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                }
+                registerUser();
             }
         });
+    }
+    private void registerUser(){
+        name=etname.getText().toString().trim();
+        wardno=etwardno.getText().toString().trim();
+        location=etlocation.getText().toString().trim();
+        password=etenterpassword.getText().toString().trim();
+        aadhaarno=etenteraadhaaar.getText().toString().trim();
+        phoneno=etphoneno.getText().toString().trim();
+
+        progressDialog.setMessage("Registering user...");
+        progressDialog.show();
+        id++;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_REGISTER,
+                new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response) {
+                        progressDialog.dismiss();
+                        try{
+                            JSONObject jsonbject= new JSONObject(response);
+                            Toast.makeText(getApplicationContext(),jsonbject.getString("message"),Toast.LENGTH_LONG).show();
+                        }
+                        catch(JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.hide();
+                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                }){
+        @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            Map<String, String> params = new HashMap<>();
+            params.put("uid", id.toString());
+            params.put("uname", name);
+            params.put("phone", phoneno);
+            params.put("address", location);
+            params.put("addharno", aadhaarno);
+            params.put("wid", wardno);
+            params.put("password", password);
+            return params;
+        }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }
