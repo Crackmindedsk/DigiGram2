@@ -120,7 +120,6 @@ public class RegisterUser extends AppCompatActivity {
             return params;
         }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 }

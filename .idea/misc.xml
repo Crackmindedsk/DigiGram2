@@ -3,26 +3,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/background_color.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/bg_shape.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_approve.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_language_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_perm_device_information_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/ic_reject.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_admin_complaint.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_department.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_department_actiivty.xml" value="0.184375" />
-        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_status.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_complaint_status.xml" value="0.22" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_home_page.xml" value="0.1" />
-        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_register_complaint.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_register_new_complaint.xml" value="0.22" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_register_user.xml" value="0.22" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_registered_complaints.xml" value="0.184375" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_start.xml" value="0.1" />
-        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_verification.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_verification.xml" value="0.22" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/activity_view_list.xml" value="0.184375" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/admin_complaint_card.xml" value="0.184375" />
-        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/app_bar_home_page.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/app_bar_home_page.xml" value="0.22" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/content_home_page.xml" value="0.1" />
-        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/fragment_profile.xml" value="0.184375" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/layout/nav_header_home_page.xml" value="0.1" />
-        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/menu/activity_main_drawer.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/menu/home_page.xml" value="0.1" />
         <entry key="..\:/AndroidWork/DigiGram2/app/src/main/res/xml/network_security_config.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/anushka/AndroidStudioProjects/DigiGram2/app/src/main/res/layout/activity_admin_complaint.xml" value="0.25416666666666665" />

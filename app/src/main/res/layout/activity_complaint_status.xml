@@ -17,7 +17,7 @@
         android:id="@+id/liner_layout">
 
         <EditText
-            android:id="@+id/etusername"
+            android:id="@+id/userid"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -25,10 +25,10 @@
             android:hint="Complaint ID"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:inputType="numberPassword" />
+            android:inputType="number" />
 
         <Button
-            android:id="@+id/btnlogin"
+            android:id="@+id/getStatus"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_gravity="center"

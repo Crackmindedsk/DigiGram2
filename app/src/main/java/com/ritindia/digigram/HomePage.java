@@ -21,7 +21,6 @@ import com.ritindia.digigram.databinding.ActivityHomePageBinding;
 public class HomePage extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityHomePageBinding binding;
     Button openComplaint,complaintStatusButton, workProgress, closecomplaints, newcomplaint;
     TextView logoutButton;
 
@@ -29,7 +28,7 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityHomePageBinding.inflate(getLayoutInflater());
+        com.ritindia.digigram.databinding.ActivityHomePageBinding binding = ActivityHomePageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarHomePage.toolbar);
