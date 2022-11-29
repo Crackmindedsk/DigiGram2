@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">DigiGram</string>
     <string name="colon">:</string>
+    <string name="title_home">Home</string>
+    <string name="title_complaint">New Complaint</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_settings">Setting</string>
     <string-array name="water_category">
         <item>Select category</item>
         <item>New Connection</item>
@@ -16,4 +20,6 @@
         <item>Education</item>
         <item>Transportation</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -93,6 +93,7 @@ public class RegisterUser extends AppCompatActivity {
                         try{
                             JSONObject jsonbject= new JSONObject(response);
                             Toast.makeText(getApplicationContext(),jsonbject.getString("message"),Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(),ComplaintStatusActivity.class));
                         }
                         catch(JSONException e) {
                             e.printStackTrace();

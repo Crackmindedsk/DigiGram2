@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 //                                                obj.getString("username"),
 //                                                obj.getString("email")
 //                                        );
-                                startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                startActivity(new Intent(getApplicationContext(),ComplaintStatusActivity.class));
 //                                finish();
                             }else{
                                 Toast.makeText(
