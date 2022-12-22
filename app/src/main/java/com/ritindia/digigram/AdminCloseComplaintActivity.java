@@ -1,7 +1,6 @@
 package com.ritindia.digigram;
 
 import static com.ritindia.digigram.Constants.URL_ADMIN_CLOSE_COMPLAINT;
-import static com.ritindia.digigram.Constants.URL_ADMIN_COMPLAINT;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

@@ -18,6 +18,12 @@
         tools:layout="@layout/activity_register_new_complaint" />
 
     <fragment
+        android:id="@+id/navigation_acknowledgement"
+        android:name="com.ritindia.digigram.AcknowledgmentFragment"
+        android:label="Acknowledgement Complaint"
+        tools:layout="@layout/fragment_acknowledgment" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.ritindia.digigram.ProfileFragment"
         android:label="@string/title_profile"

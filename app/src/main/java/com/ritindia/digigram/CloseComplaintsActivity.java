@@ -1,7 +1,7 @@
 package com.ritindia.digigram;
 
 import static com.ritindia.digigram.Constants.URL_CLOSE_COMPLAINTS;
-import static com.ritindia.digigram.Constants.URL_PRODUCTS;
+
 
 import android.os.Bundle;
 import android.widget.Toast;

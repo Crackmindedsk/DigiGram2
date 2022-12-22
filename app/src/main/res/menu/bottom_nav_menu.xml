@@ -12,6 +12,12 @@
         android:title="@string/title_complaint" />
 
     <item
+        android:id="@+id/navigation_acknowledgement"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="Acknowledge Complaint"/>
+
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/title_profile" />

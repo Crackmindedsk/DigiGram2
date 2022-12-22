@@ -1,7 +1,6 @@
 package com.ritindia.digigram;
 
 import static com.ritindia.digigram.Constants.URL_ADMIN_COMPLAINT;
-import static com.ritindia.digigram.Constants.URL_PRODUCTS;
 
 import android.os.Bundle;
 import android.util.Log;

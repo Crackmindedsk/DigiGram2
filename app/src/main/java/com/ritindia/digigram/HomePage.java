@@ -32,7 +32,7 @@ public class HomePage extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.bottomNav_view);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_new_complaint, R.id.navigation_profile, R.id.navigation_setting )
+                R.id.navigation_home, R.id.navigation_new_complaint,R.id.navigation_acknowledgement, R.id.navigation_profile, R.id.navigation_setting )
                 .build();
         //Initialize NavController.
         NavController navController = Navigation.findNavController(this, R.id.navHostFragment);

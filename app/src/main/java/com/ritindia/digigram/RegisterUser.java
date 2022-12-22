@@ -1,14 +1,17 @@
 package com.ritindia.digigram;
 
-import androidx.annotation.NonNull;
+import static com.ritindia.digigram.Constants.URL_WARD_LIST;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,15 +22,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RegisterUser extends AppCompatActivity {
@@ -41,12 +43,16 @@ public class RegisterUser extends AppCompatActivity {
     String password;
     String aadhaarno;
     private ProgressDialog progressDialog;
+    Spinner wardSpinner;
+    List<String> ward=new ArrayList<String>();
+    ArrayAdapter<String> wardAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
+        setWardSpinner();
 
         btnregister=findViewById(R.id.btnregister);
         etphoneno=findViewById(R.id.etphoneno);
@@ -56,6 +62,7 @@ public class RegisterUser extends AppCompatActivity {
         etenterpassword=findViewById(R.id.etenterpassword);
         tvwarning=findViewById(R.id.tvwaring);
         etenteraadhaaar= findViewById(R.id.etenteraadhaar);
+        wardSpinner=findViewById(R.id.wardSpinner);
         progressDialog = new ProgressDialog(this);
 
 
@@ -118,6 +125,49 @@ public class RegisterUser extends AppCompatActivity {
             return params;
         }
         };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void setWardSpinner(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_WARD_LIST,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            //converting the string to json array object
+                            JSONArray array = new JSONArray(response);
+
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject product = array.getJSONObject(i);
+                                String name=product.getString("ward");
+                                ward.add(name);
+                                wardAdapter =new ArrayAdapter<String>(RegisterUser.this, android.R.layout.simple_spinner_item,ward);
+                                wardAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                wardSpinner.setAdapter(wardAdapter);
+                                Toast.makeText(getApplicationContext(),""+product.getString("registereddate"),Toast.LENGTH_SHORT).show();
+
+                            }
+
+                            //creating adapter object and setting it to recyclerview
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        //adding our stringrequest to queue
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }

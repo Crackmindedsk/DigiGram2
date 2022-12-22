@@ -23,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ritindia.digigram.AdminHomeActivity;
 import com.ritindia.digigram.Constants;
+import com.ritindia.digigram.HomePage;
 import com.ritindia.digigram.R;
 import com.ritindia.digigram.model.ComplaintModel;
 
@@ -33,23 +34,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAdapter.AdminComplaintViewHolder>{
+public class AcknowledgeAdapter extends RecyclerView.Adapter<AcknowledgeAdapter.AcknowledgeViewHolder>{
     private Context mCtx;
     private List<ComplaintModel> complaintModelList;
-    public AdminComplaintAdapter(List<ComplaintModel> productList,Context mCtx){
+    public AcknowledgeAdapter(List<ComplaintModel> productList,Context mCtx){
         this.complaintModelList = productList;
         this.mCtx=mCtx;
     }
     @NonNull
     @Override
-    public AdminComplaintViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(mCtx).inflate(R.layout.admin_complaint_card,null);
-        return new AdminComplaintViewHolder(view);
+    public AcknowledgeAdapter.AcknowledgeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(mCtx).inflate(R.layout.acknowledge_card,null);
+        return new AcknowledgeAdapter.AcknowledgeViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdminComplaintViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AcknowledgeAdapter.AcknowledgeViewHolder holder, int position) {
         ComplaintModel cm = complaintModelList.get(position);
         holder.text.setText(""+cm.getCdid());
         holder.categorytext.setText(""+cm.getCtype());
@@ -57,32 +57,32 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
         holder.complaintDate.setText(""+cm.getRegistereddate());
         holder.complaintStatus.setText(""+cm.getStatus());
         holder.complaintward.setText(""+cm.getWard());
-        holder.approve.setOnClickListener(new View.OnClickListener() {
+        holder.complete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ongoing(cm.getCdid());
+                completeComplaint(cm.getCdid());
                 AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
-                builder.setMessage("Complaint approved, set to Ongoing")
+                builder.setMessage("Complaint Acknowledged Complete")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // START THE GAME!
-                                mCtx.startActivity(new Intent(mCtx, AdminHomeActivity.class));
+                                mCtx.startActivity(new Intent(mCtx, HomePage.class));
                             }
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
             }
         });
-        holder.complete.setOnClickListener(new View.OnClickListener() {
+        holder.pending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                complete(cm.getCdid());
+                pendingComplaint(cm.getCdid());
                 AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
-                builder.setMessage("Complaint Completed")
+                builder.setMessage("Complaint acknowledged not yet complete")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // START THE GAME!
-                                mCtx.startActivity(new Intent(mCtx, AdminHomeActivity.class));
+                                mCtx.startActivity(new Intent(mCtx, HomePage.class));
                             }
                         });
                 AlertDialog alert = builder.create();
@@ -96,28 +96,28 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
         return complaintModelList.size();
     }
 
-    public class AdminComplaintViewHolder extends RecyclerView.ViewHolder{
+    public class AcknowledgeViewHolder extends RecyclerView.ViewHolder{
         TextView text,categorytext,complaint,complaintDate, complaintStatus, complaintward;
-        Button approve, complete;
+        Button pending, complete;
 
-        public AdminComplaintViewHolder(@NonNull View itemView) {
+        public AcknowledgeViewHolder(@NonNull View itemView) {
             super(itemView);
-            text=itemView.findViewById(R.id.admin_complaint_id_edit);
-            categorytext=itemView.findViewById(R.id.admin_complaint_category_edit);
-            complaint=itemView.findViewById(R.id.admin_complaint_edit);
-            complaintDate=itemView.findViewById(R.id.admin_Complaint_date_edit);
-            complaintStatus=itemView.findViewById(R.id.admin_complaint_status);
-            complaintward=itemView.findViewById(R.id.admin_ward_edit);
-            approve=itemView.findViewById(R.id.button);
-            complete=itemView.findViewById(R.id.button2);
+            text=itemView.findViewById(R.id.acknowledge_id);
+            categorytext=itemView.findViewById(R.id.acknowledge_category);
+            complaint=itemView.findViewById(R.id.acknowledge_complaint);
+            complaintDate=itemView.findViewById(R.id.acknowledge_date);
+            complaintStatus=itemView.findViewById(R.id.acknowledge_status);
+            complaintward=itemView.findViewById(R.id.acknowledge_ward);
+            complete=itemView.findViewById(R.id.acknowledge_complete);
+            pending=itemView.findViewById(R.id.acknowledge_pending);
 
         }
 
     }
-    private void ongoing(int cdid){
+    private void completeComplaint(int cdid){
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                Constants.URL_ONGOING_ADMIN,
+                Constants.URL_COMPLETE_ACKNOWLEDGEMENT,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -150,10 +150,10 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
         RequestQueue requestQueue = Volley.newRequestQueue(mCtx);
         requestQueue.add(stringRequest);
     }
-    private void complete(int cdid){
+    private void pendingComplaint(int cdid){
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                Constants.URL_COMPLETE_ADMIN,
+                Constants.URL_PENDING_ACKNOWLEDGEMENT,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

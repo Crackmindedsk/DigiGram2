@@ -124,7 +124,7 @@ public class NewComplaintFragment extends Fragment {
         String ward = SharedPrefManager.getInstance(getActivity()).getUserWard();
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                Constants.URL_TRIAL,
+                Constants.URL_NEW_COMPLAINT_REGISTER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

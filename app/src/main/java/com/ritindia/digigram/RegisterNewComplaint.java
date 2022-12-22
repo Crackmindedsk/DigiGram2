@@ -88,7 +88,7 @@ public class RegisterNewComplaint extends AppCompatActivity {
         String ward = SharedPrefManager.getInstance(getApplicationContext()).getUserWard();
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                Constants.URL_TRIAL,
+                Constants.URL_NEW_COMPLAINT_REGISTER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

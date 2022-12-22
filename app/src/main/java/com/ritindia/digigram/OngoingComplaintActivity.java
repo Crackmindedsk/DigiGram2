@@ -1,6 +1,6 @@
 package com.ritindia.digigram;
 
-import static com.ritindia.digigram.Constants.URL_CLOSE_COMPLAINTS;
+
 import static com.ritindia.digigram.Constants.URL_ONGOING_COMPLAINTS;
 
 import android.os.Bundle;
