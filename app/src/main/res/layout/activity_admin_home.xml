@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminHomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Authority Panel"
+            android:layout_gravity="center_horizontal"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:id="@+id/AdminComplaint"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="Complaints"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"/>
+        <Button
+            android:id="@+id/closedComplaint"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="CLosed Complaints"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="Edit Password"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/adminLogout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="Logout"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

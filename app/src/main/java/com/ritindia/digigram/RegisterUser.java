@@ -40,7 +40,6 @@ public class RegisterUser extends AppCompatActivity {
     String location;
     String password;
     String aadhaarno;
-    Integer id=1;
     private ProgressDialog progressDialog;
 
 
@@ -82,7 +81,6 @@ public class RegisterUser extends AppCompatActivity {
 
         progressDialog.setMessage("Registering user...");
         progressDialog.show();
-        id++;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Constants.URL_REGISTER,
@@ -93,7 +91,7 @@ public class RegisterUser extends AppCompatActivity {
                         try{
                             JSONObject jsonbject= new JSONObject(response);
                             Toast.makeText(getApplicationContext(),jsonbject.getString("message"),Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(),ComplaintStatusActivity.class));
+                            startActivity(new Intent(getApplicationContext(),HomePage.class));
                         }
                         catch(JSONException e) {
                             e.printStackTrace();
@@ -111,7 +109,6 @@ public class RegisterUser extends AppCompatActivity {
         @Override
         protected Map<String, String> getParams() throws AuthFailureError {
             Map<String, String> params = new HashMap<>();
-            params.put("uid", id.toString());
             params.put("uname", name);
             params.put("phone", phoneno);
             params.put("address", location);
@@ -121,6 +118,7 @@ public class RegisterUser extends AppCompatActivity {
             return params;
         }
         };
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }

@@ -54,7 +54,7 @@ public class ComplaintStatusActivity extends AppCompatActivity {
         statusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getStatus();
+                getComplaintStatus();
             }
         });
 
@@ -64,7 +64,7 @@ public class ComplaintStatusActivity extends AppCompatActivity {
 //        binding.stp.setCompletedPosition(current_state);
 
     }
-    private void getStatus(){
+    private void getComplaintStatus(){
         user = userid.getText().toString().trim();
 
         progressDialog.show();

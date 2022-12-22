@@ -1,11 +1,13 @@
 package com.ritindia.digigram;
 
+import static com.ritindia.digigram.Constants.URL_ADMIN_COMPLAINT;
 import static com.ritindia.digigram.Constants.URL_PRODUCTS;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.ritindia.digigram.adapter.AdminComplaintAdapter;
 import com.ritindia.digigram.adapter.ComplaintAdapter;
 import com.ritindia.digigram.model.ComplaintModel;
 
@@ -29,25 +39,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RegisteredComplaintActivity extends AppCompatActivity {
+public class AdminComplaintActivity extends AppCompatActivity {
     RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
     List<ComplaintModel> complaintModelList;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_list);
 
-        recyclerView = (RecyclerView) findViewById(R.id.view_list);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin_complaint);
+
+        recyclerView = (RecyclerView) findViewById(R.id.admin_complaint_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         complaintModelList = new ArrayList<>();
         loadComplaints();
-//        adapter.notifyDataSetChanged();
+
+
     }
     private void loadComplaints(){
-        String id = SharedPrefManager.getInstance(getApplicationContext()).getUserId();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PRODUCTS,
+        String alevel = AdminSharedPrefManager.getInstance(getApplicationContext()).getAdminLevel();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_ADMIN_COMPLAINT,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -74,7 +87,7 @@ public class RegisteredComplaintActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),""+product.getString("registereddate"),Toast.LENGTH_SHORT).show();
 
                             }
-                            ComplaintAdapter adapter = new ComplaintAdapter(complaintModelList,RegisteredComplaintActivity.this);
+                            AdminComplaintAdapter adapter = new AdminComplaintAdapter(complaintModelList,AdminComplaintActivity.this);
                             recyclerView.setAdapter(adapter);
 
                             //creating adapter object and setting it to recyclerview
@@ -89,12 +102,11 @@ public class RegisteredComplaintActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                     }
-                }
-            ){
+                }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("uid", id);
+                params.put("alevel", alevel);
                 return params;
             }
         };

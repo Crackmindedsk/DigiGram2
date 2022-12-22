@@ -17,41 +17,25 @@
         android:paddingStart="20dp" />
 
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="30dp"
-        android:paddingStart="20dp" />
-
     <EditText
         android:id="@+id/etcomplaintdes"
         android:layout_width="300dp"
-        android:hint="Complaint Description"
+        android:hint="Complaint Description\n\n\n"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
         android:inputType="textMultiLine"
         android:layout_marginBottom="30dp">
     </EditText>
 
-    <EditText
-        android:id="@+id/etcomplaintadd"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Ward Number"
-        android:inputType="text"
-        android:layout_marginBottom="30dp"
-        android:paddingStart="20dp">
-    </EditText>
-    <EditText
-        android:id="@+id/etdate"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Complaint Date"
-        android:inputType="date"
-        android:layout_marginBottom="30dp"
-        android:paddingStart="20dp">
-    </EditText>
+<!--    <EditText-->
+<!--        android:id="@+id/etcomplaintadd"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Ward Number"-->
+<!--        android:inputType="text"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:paddingStart="20dp">-->
+<!--    </EditText>-->
 
     <Button
         android:id="@+id/btnnewcomplaint"

@@ -20,4 +20,8 @@
     <color name="dark_grey">#5d5c5e</color>
     <color name="logo_color_1">#e69494</color>
     <color name="logo_color_2">#545454</color>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,11 +71,33 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button btn = view.findViewById(R.id.track_status);
+        Button btn = view.findViewById(R.id.close_complaint);
+        Button btn1 = view.findViewById(R.id.total_complaints);
+        Button btn3 = view.findViewById(R.id.btncomplaint);
+        Button btn4 = view.findViewById(R.id.work_in_progress);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),ComplaintStatusActivity.class));
+                startActivity(new Intent(getActivity(),CloseComplaintsActivity.class));
+            }
+        });
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),RegisteredComplaintActivity.class));
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),RegisterNewComplaint.class));
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),OngoingComplaintActivity.class));
             }
         });
     }

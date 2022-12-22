@@ -1,6 +1,5 @@
 package com.ritindia.digigram;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -19,11 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,22 +25,20 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
-    EditText etusername,etpassword;
+public class AdminLoginActivity extends AppCompatActivity {
+    EditText etadminname,etadminpass;
     Button btnlogin;
-    TextView tvregister;
-    String username;
-    String password;
+    String adminname;
+    String pass;
     private ProgressDialog progressDialog;
     Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        etusername=findViewById(R.id.etusername);
-        etpassword=findViewById(R.id.etpassword);
-        btnlogin=findViewById(R.id.btnlogin);
-        tvregister=findViewById(R.id.tvnewuser);
+        setContentView(R.layout.activity_admin_login);
+        etadminname=findViewById(R.id.etadminname);
+        etadminpass=findViewById(R.id.etadminpass);
+        btnlogin=findViewById(R.id.btnadminlogin);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
@@ -55,28 +47,19 @@ public class MainActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userLogin();
+                adminLogin();
             }
         });
-
-        //----new user registration----
-        tvregister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),RegisterUser.class));
-            }
-        });
-
     }
-    private void userLogin(){
-        username = etusername.getText().toString().trim();
-        password = etpassword.getText().toString().trim();
+    private void adminLogin(){
+        adminname = etadminname.getText().toString().trim();
+        pass = etadminpass.getText().toString().trim();
 
         progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                Constants.URL_LOGIN,
+                Constants.URL_ADMIN_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -85,12 +68,13 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject obj = new JSONObject(response);
                             if(!obj.getBoolean("error")){
                                 Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_LONG).show();
-                                SharedPrefManager.getInstance(getApplicationContext())
-                                        .userLogin(
-                                                obj.getInt("uid"),
-                                                obj.getInt("wid")
+                                AdminSharedPrefManager.getInstance(getApplicationContext())
+                                        .adminLogin(
+                                                obj.getInt("alevel"),
+                                                obj.getString("aname"),
+                                                obj.getString("phone")
                                         );
-                                startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                startActivity(new Intent(getApplicationContext(),AdminHomeActivity.class));
 //                                finish();
                             }else{
                                 Toast.makeText(
@@ -120,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("phone", username);
-                params.put("password", password);
+                params.put("aname", adminname);
+                params.put("password", pass);
                 return params;
             }
 
@@ -130,5 +114,4 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-
 }

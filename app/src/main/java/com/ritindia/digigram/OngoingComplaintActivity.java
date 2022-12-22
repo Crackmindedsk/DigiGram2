@@ -1,6 +1,7 @@
 package com.ritindia.digigram;
 
-import static com.ritindia.digigram.Constants.URL_PRODUCTS;
+import static com.ritindia.digigram.Constants.URL_CLOSE_COMPLAINTS;
+import static com.ritindia.digigram.Constants.URL_ONGOING_COMPLAINTS;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -29,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RegisteredComplaintActivity extends AppCompatActivity {
+public class OngoingComplaintActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<ComplaintModel> complaintModelList;
 
@@ -47,7 +48,7 @@ public class RegisteredComplaintActivity extends AppCompatActivity {
     }
     private void loadComplaints(){
         String id = SharedPrefManager.getInstance(getApplicationContext()).getUserId();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PRODUCTS,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_ONGOING_COMPLAINTS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -74,7 +75,7 @@ public class RegisteredComplaintActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),""+product.getString("registereddate"),Toast.LENGTH_SHORT).show();
 
                             }
-                            ComplaintAdapter adapter = new ComplaintAdapter(complaintModelList,RegisteredComplaintActivity.this);
+                            ComplaintAdapter adapter = new ComplaintAdapter(complaintModelList,OngoingComplaintActivity.this);
                             recyclerView.setAdapter(adapter);
 
                             //creating adapter object and setting it to recyclerview
@@ -90,7 +91,7 @@ public class RegisteredComplaintActivity extends AppCompatActivity {
 
                     }
                 }
-            ){
+        ){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();

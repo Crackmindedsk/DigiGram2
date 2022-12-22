@@ -53,12 +53,12 @@ public class FecthDetailsAdapter extends RecyclerView.Adapter<FecthDetailsAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             t = new TextView[]{
-                    itemView.findViewById(R.id.complaint_id_edit),
+//                    itemView.findViewById(R.id.complaint_id_edit),
                     itemView.findViewById(R.id.complaint_category_edit),
                     itemView.findViewById(R.id.complaint_edit),
                     itemView.findViewById(R.id.Complaint_date_edit),
                     itemView.findViewById(R.id.transfer_text_edit),
-                    itemView.findViewById(R.id.status_edit),
+//                    itemView.findViewById(R.id.status_edit),
             };
         }
     }

@@ -6,9 +6,43 @@
     tools:context=".SettingFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Setting" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="70dp"
+        android:src="@drawable/ic_baseline_settings_24"/>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Rate Us"
+            android:layout_marginBottom="20dp"
+            />
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Share"
+            android:layout_marginBottom="20dp"
+            />
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            android:layout_marginBottom="20dp"
+            />
+        <Button
+            android:id="@+id/setlogout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Log Out"
+            android:layout_marginBottom="20dp"
+            />
+    </LinearLayout>
 
 </FrameLayout>

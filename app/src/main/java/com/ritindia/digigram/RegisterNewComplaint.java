@@ -1,19 +1,30 @@
 package com.ritindia.digigram;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,26 +33,30 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterNewComplaint extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
     Button btnrnewcomplaint;
-    String complaintadd,complaintdes,date, department, category;
-    EditText etcomplaintadd,etcomplaintdes,etdate;
-    FirebaseFirestore db;
+    String complaintdes,date, category;
+    EditText etcomplaintdes;
     Spinner spinner,spinner2;
+    private ProgressDialog progressDialog;
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_new_complaint);
-        spinner= (Spinner) findViewById(R.id.spinner);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.water_category, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+//        spinner.setAdapter(adapter);
 
         spinner2= (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
@@ -49,55 +64,90 @@ public class RegisterNewComplaint extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
-        etcomplaintadd=findViewById(R.id.etcomplaintadd);
         etcomplaintdes=findViewById(R.id.etcomplaintdes);
-        etdate=findViewById(R.id.etdate);
-        db=FirebaseFirestore.getInstance();
         btnrnewcomplaint=findViewById(R.id.btnnewcomplaint);
-
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
         btnrnewcomplaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
                 complaintdes=etcomplaintdes.getText().toString();
-                complaintadd=etcomplaintadd.getText().toString();
-                date=etdate.getText().toString();
-                department=spinner2.getSelectedItem().toString();
-                category= spinner.getSelectedItem().toString();
+                category=spinner2.getSelectedItem().toString();
+                newComplaint();
 
-
-                Map<String,Object> complaint=new HashMap<>();
-                complaint.put("Description",complaintdes);
-                complaint.put("Address",complaintadd);
-                complaint.put("Date",date);
-                complaint.put("Department",department);
-                complaint.put("Status","Ongoing");
-                complaint.put("Category",category);
-
-                db.collection("Complaint").document().set(complaint).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Complaint posted",Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getApplicationContext(),"Complaint registration failure",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-                AlertDialog.Builder notify=new AlertDialog.Builder(RegisterNewComplaint.this);
-                notify.setMessage("Complaint registerd successfully..");
-                notify.setIcon(R.drawable.ic_launcher_background);
-                notify.setCancelable(false);
-                notify.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                });
-                notify.show();
 
             }
         });
+    }
+
+    private void newComplaint(){
+        progressDialog.show();
+        String id = SharedPrefManager.getInstance(getApplicationContext()).getUserId();
+        String ward = SharedPrefManager.getInstance(getApplicationContext()).getUserWard();
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                Constants.URL_TRIAL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressDialog.dismiss();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                        builder.setMessage("Complaint Registered")
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // START THE GAME!
+                                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                                        finish();
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                       // startActivity(new Intent(getApplicationContext(),HomeFragment.class));
+                        try {
+                            JSONObject jsonbject= new JSONObject(response);
+                            if(!jsonbject.getBoolean("error")){
+                                Toast.makeText(getApplicationContext(),"Complaint Registered",Toast.LENGTH_LONG).show();
+
+                            }else{
+                                Toast.makeText(
+                                        getApplicationContext(),"Unsuccessful",
+                                        Toast.LENGTH_LONG
+                                ).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+
+                        Toast.makeText(
+                                getApplicationContext(),
+                                error.getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                }
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> complaint=new HashMap<>();
+                complaint.put("uid",id);
+                complaint.put("wid",ward);
+                complaint.put("details",complaintdes);
+                complaint.put("ctype",category);
+                return complaint;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }

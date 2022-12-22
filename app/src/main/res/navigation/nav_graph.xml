@@ -15,7 +15,7 @@
         android:id="@+id/navigation_new_complaint"
         android:name="com.ritindia.digigram.NewComplaintFragment"
         android:label="@string/title_complaint"
-        tools:layout="@layout/fragment_new_complaint" />
+        tools:layout="@layout/activity_register_new_complaint" />
 
     <fragment
         android:id="@+id/navigation_profile"
